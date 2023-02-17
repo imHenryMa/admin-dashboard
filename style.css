@@ -1,0 +1,157 @@
+body{
+    margin:0;
+    padding:0;
+}
+
+.grid-container{
+    height: 100vh;
+    width: 100vw;
+    display:grid;
+    grid-template: 
+            "side-bar top-bar" clamp(2.5rem,20%, 10rem)
+            "side-bar content-container" minmax(10rem, 100%)
+            / clamp(15rem, 10%,30rem) minmax(20rem, 100%);
+}
+
+/*
+-------------------------------
+Options related to the side bar
+-------------------------------
+*/
+
+.side-bar{
+    grid-area: side-bar;
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3rem;
+    grid-auto-flow:row;
+    grid-auto-rows: 2rem;
+    overflow:hidden;
+
+    gap: 0.25rem;
+    padding: 0.25rem;
+
+    border: 1px solid blue;
+    background-color: rgb(25,146,212);
+    color: white;
+}
+
+.option{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    font-weight:bold;
+}
+
+img.main{
+    width: 80%;
+    transform: translateX(10%);
+}
+
+/* Styling the links in the sidebar*/
+.option > span+span,
+.option > img+span{
+    padding: 10%;
+    justify-self: start;
+}
+
+.link.option{
+    font-size: 1rem;
+}
+
+.logo.option{
+    font-size: 1.25rem;
+}
+
+
+/*
+-------------------------------
+Options related to the Top bar
+-------------------------------
+*/
+
+.top-bar{
+    grid-area:top-bar;
+    height:100%;
+    display:grid;
+    grid-template:  "search notifications" 1fr
+                    "profile-container menu" 1fr/
+                    6fr 4fr;
+    border: 1px solid red;
+}
+
+.search-container{
+    display: grid;
+    grid-template: 1fr/ 2rem 1fr;
+    align-items: center;
+}
+
+.search-container > *{
+    height: 1.5rem;
+    margin: 1rem;
+}
+
+.search-container > input[type="text"]{
+    border-radius: 50rem;
+    border: none;
+    background-color: rgb(240,240,240);
+    width: 80%;
+    padding-left: 1rem;
+}
+
+/*Remove styling from the search button*/
+.search-container > button {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    padding: 0;
+}
+
+.profile-container{
+    grid-area:profile-container;
+    display: grid;
+    height:100%;
+    grid-template: "profile greeting" 20%
+                        "profile username" 80% / 8rem 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+
+.profile-container > .profile-picture{
+    grid-area: profile;
+    height: 100%;
+    object-fit:scale-down;
+}
+
+.profile-container > .greeting{
+    grid-area: greeting;
+    height: 1rem;
+    font-size: 1rem;
+}
+
+.profile-container > .username {
+    grid-area: username;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+.content-container{
+    display: grid;
+    grid-area:content-container;
+    overflow:scroll;
+    border: 1px solid black;
+}

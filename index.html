@@ -6,59 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./fonts/fontello-b669923d/css/fontello.css">
 </head>
 <body>
     <div class="grid-container">
-        <div class="side-bar">
+        <nav class="side-bar">
             <div class="logo option">
-                <img>
-                <span>Text</span>
+                <img class="main" src="./images/logo-white.png">
+                <span>Dashboard</span>
+            </div>
+            <span class="spacer"></span>
+            <div class="link option">
+                <span class="icon-home"></span>
+                <span>Home</span>
             </div>
             <div class="link option">
-                <img>
-                <span>Text</span>
+                <span class="icon-id-card-o"></span>
+                <span>Profile</span>
             </div>
             <div class="link option">
-                <img>
-                <span>Text</span>
+                <span class="icon-comment"></span>
+                <span>Messages</span>
             </div>
             <div class="link option">
-                <img>
-                <span>Text</span>
+                <span class="icon-clock"></span>
+                <span>History</span>
             </div>
             <div class="link option">
-                <img>
-                <span>Text</span>
+                <span class="icon-docs"></span>
+                <span>Tasks</span>
             </div>
             <div class="link option">
-                <img>
-                <span>Text</span>
+                <span class="icon-users"></span>
+                <span>Community</span>
             </div>
             <div class="link option">
-                <img>
-                <span>Text</span>
+                <span class="icon-cog"></span>
+                <span>Settings</span>
+            </div>
+            <span class="spacer"></span>
+            <div class="link option">
+                <span class="question">🯄</span>
+                <span>Support</span>
             </div>
             <div class="link option">
-                <img>
-                <span>Text</span>
+                <span class="icon-shield"></span>
+                <span>Privacy</span>
             </div>
-            <div class="link option">
-                <img>
-                <span>Text</span>
-            </div>
-            <div class="link option">
-                <img>
-                <span>Text</span>
-            </div>
-        </div>
+        </nav>
 
         <div class="top-bar">
-            <div class="search">
-                <form>
-                    <button type="submit"></button>
-                    <input type="text">
-                </form>
-            </div>
+            <form class="search-container">
+                <button type="submit"><span class="icon-search"></span></button>
+                <input type="text">
+            </form>
             
             <div class = "notification">
                 <button></button>
@@ -66,10 +67,10 @@
                 Username
             </div>
             
-            <div class = "greeting">
-                <img>
-                <p>Hi there,</p>
-                <p>Username (@username)</p>
+            <div class = "profile-container">
+                <img class="profile-picture" src ="/images/profile-images/logo-sheep.png">
+                <span class="greeting">Hi there,</span>
+                <span class="username">Username (@username)</span>
             </div>
 
             <div class= "menu">
@@ -79,14 +80,14 @@
             </div>
         </div>
 
-        <div class="card-container">
+        <div class="content-container">
             <div class="project-section">
                 <div class="label">
                     Your Projects
                 </div>
                 <div class="project-container">
                     <div class="project-card">
-
+                    
                     </div>
                 </div>
             </div>
@@ -95,10 +96,10 @@
                 <div class="label">
                     Announcements
                 </div>
-                <div class="announement-card">
+                <div class="announcement-card">
                     <div class="announcement">
                         <p>Site Maintenance</p>
-                        <p>Vestadfakjshdasjdkl</p>
+                        <p style="font-size:30px;">Vestadfakjshdasjdkl</p>
                     </div>
                 </div>
             </div>
