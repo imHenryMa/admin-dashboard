@@ -8,9 +8,10 @@ body{
     width: 100vw;
     display:grid;
     grid-template: 
-            "side-bar top-bar" clamp(2.5rem,20%, 10rem)
+            "side-bar top-bar" auto
             "side-bar content-container" minmax(10rem, 100%)
             / clamp(15rem, 10%,30rem) minmax(20rem, 100%);
+    overflow: hidden;
 }
 
 /*
@@ -26,12 +27,11 @@ Options related to the side bar
     grid-template-rows: 3rem;
     grid-auto-flow:row;
     grid-auto-rows: 2rem;
-    overflow:hidden;
+    overflow:scroll;
 
     gap: 0.25rem;
     padding: 0.25rem;
 
-    border: 1px solid blue;
     background-color: rgb(25,146,212);
     color: white;
 }
@@ -73,20 +73,25 @@ Options related to the Top bar
 -------------------------------
 */
 
+/* Search  related */
 .top-bar{
     grid-area:top-bar;
+    box-sizing: border-box;
     height:100%;
     display:grid;
-    grid-template:  "search notifications" 1fr
+    grid-template:  "search notifications" auto
                     "profile-container menu" 1fr/
                     6fr 4fr;
-    border: 1px solid red;
+    overflow: hidden;
+    padding: 1rem 2rem;
+    box-shadow: 0 0.5rem 0.25rem -0.25rem rgba(0,0,0,0.2);
 }
 
 .search-container{
     display: grid;
     grid-template: 1fr/ 2rem 1fr;
     align-items: center;
+    padding: 1rem;
 }
 
 .search-container > *{
@@ -98,60 +103,177 @@ Options related to the Top bar
     border-radius: 50rem;
     border: none;
     background-color: rgb(240,240,240);
-    width: 80%;
-    padding-left: 1rem;
+    width: 90%;
+    margin: 0;
 }
 
 /*Remove styling from the search button*/
 .search-container > button {
     background: none;
-    border: none;
+    border:none;
+    width: 2rem;
     font-size: 1rem;
     padding: 0;
+    margin: 0;
+    text-align: start;
 }
+
+/* Profile related */
 
 .profile-container{
     grid-area:profile-container;
     display: grid;
     height:100%;
-    grid-template: "profile greeting" 20%
-                        "profile username" 80% / 8rem 1fr;
+    grid-template: "profile greeting" auto / auto 1fr;
     align-items: center;
-    justify-items: center;
+    justify-items: start;
+    overflow: hidden;
+    padding-left: 1rem;
 }
-
 
 .profile-container > .profile-picture{
     grid-area: profile;
-    height: 100%;
-    object-fit:scale-down;
+    box-sizing: border-box;
+    height: 4rem;
 }
 
 .profile-container > .greeting{
     grid-area: greeting;
+    transform:translateY(-100%); /* not sure why this is needed*/
     height: 1rem;
-    font-size: 1rem;
+    font-size: 1.25rem;
+    padding-left: 1rem;
 }
 
-.profile-container > .username {
+.username {
     grid-area: username;
     font-size: 1.5rem;
     font-weight: bold;
 }
 
 
+/* Username related */
+
+.notification-container{
+    box-sizing: border-box;
+    align-items: end;
+    text-align: end;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+}
+
+.notification-container > .profile-picture{
+    box-sizing: border-box;
+    height: 3rem;
+}
+
+/* Menu related related */
+
+.menu{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.menu > button{
+    height: 3rem;
+    width: 10rem;
+    border-radius: 3rem;
+    border: none;
+    background-color: rgb(25,146,212);
+    color: white;
+    font-weight: bold;
+}
 
 
 
+/* Project Contents */
 
-
-
-
-
+ul.project-list{
+    padding:0;
+    margin: 0;
+    list-style: none;
+}
 
 .content-container{
     display: grid;
     grid-area:content-container;
     overflow:scroll;
-    border: 1px solid black;
+    grid-template:  "projects announce" 1fr 
+                    "projects trends" 1fr / 3fr 1fr;
+    padding: 1rem;
+    overflow: scroll;
+}
+
+.project-container{
+    grid-area: projects;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem 2rem;
+    overflow: scroll;
+}
+
+.project-card{
+    margin: 1rem;
+    border-left: 1rem solid orange;
+    border-radius: 0.5rem;
+    box-shadow: 0.25rem 0.25rem 0.5rem  -0.25rem rgba(0,0,0,0.8);
+}
+
+.project-card > .text{
+    padding: 0.5rem 4rem 1rem 1rem;
+}
+
+.project-card > .options{
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}
+
+.label{
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.announcement-container{
+    grid-area: announce;
+    display: flex;
+    flex-direction: column;
+}
+
+.announcement-card{
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow: hidden;
+}
+
+.trend-container{
+    grid-area: trends;
+    display: flex;
+    flex-direction: column;
+}
+
+.trend-card{
+    display: flex;
+    flex-direction: column;
+}
+
+.trender{
+    display: flex;
+}
+
+.trender > img {
+    height: 4rem;
+    width: 4rem;
 }
